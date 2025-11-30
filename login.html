@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login – Sherbet Holmes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="Images/logo.jpg" alt="logo">
+        <span class="logo-text">Sherbet Holmes</span>
+    </div>
+
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <a href="feedback.html" class="icon-link" title="Feedback">
+            <i class="fa-solid fa-comment-dots"></i>
+        </a>
+        
+        <a href="cart.html" class="icon-link cart-icon" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </a>
+
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+</nav>
+
+<div class="banner">Login</div>
+
+<section class="feedback-container" style="text-align: center;">
+    <form id="loginForm">
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" placeholder="admin@sherbet.com" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="loginPassword" placeholder="12345" required>
+        </div>
+
+        <button type="submit">Unlock Case File</button>
+    </form>
+    <br>
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+        
+        <div class="footer-logo">
+            <img src="Images/logo.jpg" alt="Sherbet Holmes Logo">
+            <span>Sherbet Holmes</span>
+        </div>
+
+        <p class="footer-tagline">
+            "Investigating the sweetest cases worldwide. HQ located at the Pentagon (allegedly)."
+        </p>
+
+        <div class="footer-divider"></div>
+
+        <ul class="footer-links">
+            <li><a href="menu.html">The Evidence (Menu)</a></li>
+            <li><a href="reviews.html">Witnesses</a></li>
+            <li><a href="about.html">Case Files (About)</a></li>
+            <li><a href="contact.html">Contact HQ</a></li>
+        </ul>
+
+        <div class="footer-social">
+            <a href="https://www.instagram.com/sherbet_holmes/" target="_blank" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="mailto:sherbetho1me5.offical@gmail.com" title="Email Us">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="footer-contact-info">
+            123 Main Street, Anytown, USA | 123-456-7890
+        </div>
+        
+        <div class="footer-copyright">
+            &copy; 2025 Sherbet Holmes. Case Closed. 🕵️‍♀️🍦
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sherbet Holmes – Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="Images/logo.jpg" alt="logo">
+        <span class="logo-text">Sherbet Holmes</span>
+    </div>
+
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <a href="feedback.html" class="icon-link" title="Feedback">
+            <i class="fa-solid fa-comment-dots"></i>
+        </a>
+        
+        <a href="cart.html" class="icon-link cart-icon" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </a>
+
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+</nav>
+
+<div class="banner">Welcome to Sherbet Holmes!</div>
+
+<div class="slider-container">
+    
+    <div class="mySlides fade"> 
+        <img src="Images/molten_c.jpg" alt="Molten Lava Cake">
+    </div>
+    <div class="mySlides fade"> 
+        <img src="Images/lotus_s.png" alt="Lotus Special">
+    </div>
+
+    <div class="mySlides fade"> 
+        <img src="Images/raspberry_s.png" alt="Raspberry Sherbet">
+    </div>
+    <div class="mySlides fade"> 
+        <img src="Images/mango_s.png" alt="Mango Sherbet">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="Images/choco_i.jpg" alt="Chocolate Ice Cream">
+    </div>
+    <div class="mySlides fade">
+        <img src="Images/caramel_i.png" alt="Caramel Ice Cream">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div style="text-align:center; padding: 10px;">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+</div>
+
+<section class="category-section">
+    <h2>Shop By Category</h2>
+    <div class="category-links-container">
+        
+        <a href="menu.html#cakes" class="category-link">
+            <div class="category-circle">
+                <img src="Images/molten_c.jpg" alt="Sherbet Holmes Cakes"> 
+            </div>
+            <p class="category-name">Cakes</p>
+        </a>
+
+        <a href="menu.html#sherbets" class="category-link">
+            <div class="category-circle">
+                <img src="Images/raspberry_s.png" alt="Sherbet Holmes Sherbets">
+            </div>
+            <p class="category-name">Sherbets</p>
+        </a>
+
+        <a href="menu.html#icecreams" class="category-link">
+            <div class="category-circle">
+                <img src="Images/choco_i.jpg" alt="Sherbet Holmes Ice Creams">
+            </div>
+            <p class="category-name">Ice Creams</p>
+        </a>
+
+    </div>
+</section>
+
+<section class="deals-container">
+    <h2>Ongoing Cases (Deals)</h2>
+    
+    <ol class="deal-list">
+        <li>
+            <div class="deal-content">
+                <span class="deal-title">🕵️‍♀️ The Case of the Missing Monday</span>
+                <span class="deal-text">Solve the mystery by treating yourself to <strong>20% off</strong> any cone or cup, available <em>only</em> on Mondays!</span>
+            </div>
+        </li>
+
+        <li>
+            <div class="deal-content">
+                <span class="deal-title">🎉 The Birthday Investigation</span>
+                <span class="deal-text">It's your Birthday Case! Show us proof of your birthdate (ID) and get a <strong>FREE scoop</strong> of any flavor. We'll verify your identity, just like a true detective.</span>
+            </div>
+        </li>
+
+        <li>
+            <div class="deal-content">
+                <span class="deal-title">🎩 The Watson Weekender</span>
+                <span class="deal-text">Every great detective needs a partner! Buy any <strong>Double Scoop</strong> on Saturday or Sunday and get a free topping for your trusty sidekick.</span>
+            </div>
+        </li>
+
+        <li>
+            <div class="deal-content">
+                <span class="deal-title">😈 The Moriarty Meltdown</span>
+                <span class="deal-text">Feeling dangerous? Order our spicy chocolate "Moriarty" scoop. If you can finish it without drinking water, the ice cream is <strong>on the house</strong>!</span>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+        
+        <div class="footer-logo">
+            <img src="Images/logo.jpg" alt="Sherbet Holmes Logo">
+            <span>Sherbet Holmes</span>
+        </div>
+
+        <p class="footer-tagline">
+            "Investigating the sweetest cases worldwide. HQ located at the Pentagon (allegedly)."
+        </p>
+
+        <div class="footer-divider"></div>
+
+        <ul class="footer-links">
+            <li><a href="menu.html">The Evidence (Menu)</a></li>
+            <li><a href="reviews.html">Witnesses</a></li>
+            <li><a href="about.html">Case Files (About)</a></li>
+            <li><a href="contact.html">Contact HQ</a></li>
+        </ul>
+
+        <div class="footer-social">
+            <a href="https://www.instagram.com/sherbet_holmes/" target="_blank" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="mailto:sherbetho1me5.offical@gmail.com" title="Email Us">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+
+        <div class="footer-contact-info">
+            123 Main Street, Anytown, USA | 123-456-7890
+        </div>
+        
+        <div class="footer-copyright">
+            &copy; 2025 Sherbet Holmes. Case Closed. 🕵️‍♀️🍦
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

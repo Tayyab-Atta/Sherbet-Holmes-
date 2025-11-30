@@ -1,0 +1,453 @@
+/* =========================================
+   1. GLOBAL RESET & BASICS
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f7f4e9;
+    color: #333;
+    display: block;
+    /* IMPORTANT: Pushes content down so it doesn't hide behind the fixed navbar */
+    padding-top: 105px; 
+}
+
+/* =========================================
+   2. NAVBAR & LOGO
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #b9e7db;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    
+    /* FIXED POSITION: Locks navbar to the top of the screen permanently */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #2b7a78;
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-link {
+    color: #2b7a78;
+    font-size: 22px;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.icon-link:hover {
+    transform: scale(1.1);
+    color: #1a4d4b;
+}
+
+.cart-icon #cart-count {
+    background: #e85b42;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    border: 1px solid white;
+}
+
+.login-btn {
+    background-color: #2b7a78;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.login-btn:hover {
+    background-color: #1f5d4f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 4px solid #2b7a78;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px; 
+    font-weight: 700;
+    color: #1f5d4f;
+    letter-spacing: 0.5px;
+}
+
+.logo:hover img {
+    transform: scale(1.1) rotate(-10deg);
+    border-color: #1f5d4f;
+}
+
+/* =========================================
+   3. LAYOUT & BANNER
+   ========================================= */
+.banner {
+    background: #6bb8a4;
+    color: white;
+    padding: 35px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+}
+
+section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h1, h2 {
+    color: #2d6f62;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* =========================================
+   4. HOME PAGE STYLES (Slideshow & Deals)
+   ========================================= */
+.slider-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    position: relative;
+    border-radius: 15px;
+    border: 5px solid #75bdaa;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.mySlides { display: none; }
+.mySlides img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+}
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover { background-color: #717171; }
+.fade { animation-name: fade; animation-duration: 1.5s; }
+@keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+.category-section { text-align: center; padding: 40px 20px; }
+.category-links-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.category-link { text-decoration: none; color: #333; display: block; width: 200px; transition: transform 0.3s ease; }
+.category-link:hover { transform: translateY(-5px); color: #000; }
+.category-circle {
+    width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: 0 auto 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); border: 4px solid #75bdaa;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.category-circle img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.category-link:hover .category-circle { border-color: #2b7a78; transform: scale(1.05); }
+.category-name { font-size: 16px; font-weight: bold; margin-top: 5px; }
+
+.deals-container { max-width: 900px; margin: 0 auto 50px auto; }
+.deal-list { list-style: none; counter-reset: deal-counter; padding: 0; }
+.deal-list li {
+    background-color: white; margin-bottom: 25px; padding: 25px 25px 25px 80px;
+    border-radius: 12px; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-left: 8px solid #75bdaa; transition: transform 0.3s ease;
+}
+.deal-list li:hover { transform: translateY(-5px); }
+.deal-list li::before {
+    counter-increment: deal-counter; content: counter(deal-counter);
+    position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+    font-size: 45px; font-weight: 800; color: #d0efea; z-index: 0;
+}
+.deal-content { position: relative; z-index: 1; }
+.deal-title { display: block; font-size: 20px; color: #2b7a78; font-weight: bold; margin-bottom: 8px; }
+.deal-text { color: #555; line-height: 1.6; font-size: 16px; }
+
+/* =========================================
+   5. MENU PAGE STYLES
+   ========================================= */
+.sub-navbar {
+    background: #fff; padding: 15px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    margin-bottom: 0;
+    position: sticky; 
+    top: 105px; /* ADJUSTED: Matches height of main navbar so they touch */
+    z-index: 998;
+}
+.sub-navbar ul { display: flex; justify-content: center; gap: 30px; list-style: none; }
+.sub-navbar ul li a { text-decoration: none; color: #333; font-weight: 600; padding: 8px 20px; border-radius: 20px; transition: 0.2s; }
+.sub-navbar ul li a:hover { background-color: #f0fdf9; color: #2b7a78; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; }
+
+/* Card Styling - Compact & Clean */
+.item { 
+    background: white; padding: 20px; border-radius: 12px; 
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.1); transition: 0.2s; 
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.item:hover { transform: translateY(-4px); }
+
+.menu-img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
+
+/* Item Name */
+.item h3 { 
+    font-family: "Poppins", sans-serif;
+    font-size: 18px; 
+    margin: 5px 0; 
+    min-height: auto; 
+    font-weight: 700; 
+}
+
+/* Price - Matches Theme */
+.price {
+    font-family: "Poppins", sans-serif; 
+    font-size: 18px; 
+    color: #1f5d4f; 
+    font-weight: 700; 
+    margin: 5px 0 15px 0; 
+    display: inline-block;
+    background: transparent; 
+    padding: 0;
+}
+
+/* Add Button */
+.add-btn {
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; 
+    font-size: 15px; font-family: "Poppins", sans-serif;
+    background-color: #91d6c5; border: none; padding: 10px 18px; border-radius: 10px; 
+    font-weight: 600; cursor: pointer; transition: 0.2s; margin-top: auto;
+}
+.add-btn:hover { background-color: #6bb8a4; }
+
+/* =========================================
+   6. ABOUT PAGE STYLES (Table & Story)
+   ========================================= */
+.about-section { text-align: center; padding: 50px 20px; max-width: 900px; margin: 0 auto; }
+.story-text {
+    color: #2b7a78; font-size: 18px; line-height: 1.8; background: white; padding: 40px;
+    border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #75bdaa; margin-bottom: 50px;
+}
+.vision-container { width: 100%; overflow-x: auto; }
+table.vision-table {
+    width: 100%; border-collapse: collapse; font-family: "Poppins", sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 12px; overflow: hidden; background-color: #e0f2ef;
+}
+.vision-table th, .vision-table td { border: 2px solid #75bdaa; padding: 20px; text-align: center; font-weight: 600; color: #1f5d4f; }
+.table-header-row { background-color: #2b7a78; color: white !important; }
+.table-header-row td { color: white; font-size: 20px; border: 2px solid #1f5d4f; }
+.column-header { background-color: #d6f3ea; font-size: 1.1em; }
+.big-cell { background-color: #fff; font-weight: bold; }
+.footer-row td { background-color: #d6f3ea; font-style: italic; font-size: 14px; }
+
+/* =========================================
+   7. REVIEWS PAGE STYLES
+   ========================================= */
+.reviews-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+.review-card {
+    background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid #75bdaa; transition: transform 0.3s ease; position: relative;
+}
+.review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.stars { color: #f4c150; font-size: 22px; margin-bottom: 15px; letter-spacing: 2px; }
+.review-text { font-size: 16px; color: #555; line-height: 1.6; font-style: italic; min-height: 60px; }
+.review-author { margin-top: 20px; text-align: right; font-weight: bold; color: #2b7a78; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.review-card::before { content: "“"; font-size: 80px; color: #f0fdf9; position: absolute; top: -10px; right: 20px; font-family: serif; z-index: 0; }
+
+/* =========================================
+   8. CART STYLES
+   ========================================= */
+#cart-items { min-height: 200px; margin-bottom: 40px; }
+.cart-item button { width: 30px; height: 30px; padding: 0; font-size: 18px; margin: 0 5px; line-height: 1; }
+.checkout-section {
+    background-color: white; max-width: 500px; margin: 0 auto; padding: 30px;
+    border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid #75bdaa; text-align: center;
+}
+.checkout-section h2 { color: #1f5d4f; font-size: 28px; border-bottom: 2px dashed #ccc; padding-bottom: 20px; margin-bottom: 20px; }
+.discount-input {
+    width: 80%; padding: 12px 20px; border: 2px solid #75bdaa; border-radius: 25px; outline: none; text-align: center; font-size: 16px; margin-bottom: 20px; transition: 0.3s;
+}
+.discount-input:focus { box-shadow: 0 0 8px rgba(117, 189, 170, 0.4); }
+#checkout-btn {
+    width: 100%; padding: 15px; font-size: 18px; border-radius: 25px; background-color: #2b7a78;
+    color: white; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; border: none;
+}
+#checkout-btn:hover { background-color: #1f5d4f; transform: translateY(-2px); }
+
+/* =========================================
+   9. FORMS (Login & Feedback)
+   ========================================= */
+.feedback-container {
+    max-width: 600px; margin: 40px auto; background: white; padding: 40px;
+    border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #75bdaa;
+}
+.form-group { margin-bottom: 20px; text-align: left; }
+label { display: block; margin-bottom: 8px; font-weight: 600; color: #2b7a78; }
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
+    width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #ddd; font-size: 16px; outline: none; transition: border-color 0.3s; font-family: "Poppins", sans-serif;
+}
+textarea { resize: vertical; min-height: 120px; }
+input:focus, select:focus, textarea:focus { border-color: #75bdaa; }
+button[type="submit"] {
+    width: 100%; padding: 15px; font-size: 18px; background-color: #2b7a78; color: white; border: none;
+    border-radius: 10px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
+}
+button[type="submit"]:hover { background-color: #1f5d4f; transform: translateY(-2px); }
+
+/* =========================================
+   10. FAQ STYLES
+   ========================================= */
+.faq-container { max-width: 800px; margin: 0 auto; padding-bottom: 50px; }
+.search-box {
+    width: 100%; padding: 15px 20px; font-size: 16px; border: 2px solid #75bdaa; border-radius: 50px; margin-bottom: 30px; outline: none; transition: 0.3s;
+    background: #fff url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat 96% center; background-size: 20px;
+}
+.faq-item { background-color: white; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; }
+.faq-question {
+    background-color: white; color: #2b7a78; cursor: pointer; padding: 20px; width: 100%; border: none; text-align: left; outline: none;
+    font-size: 18px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.3s ease;
+}
+.faq-question:hover { background-color: #f0fdf9; }
+.faq-question.active { background-color: #75bdaa; color: white; }
+.icon-state { font-size: 24px; font-weight: bold; transition: transform 0.3s ease; }
+.faq-question.active .icon-state { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background-color: #fff; }
+.faq-answer p { padding: 20px; line-height: 1.6; color: #555; border-top: 1px solid #eee; margin: 0; }
+
+/* =========================================
+   11. CONTACT PAGE STYLES
+   ========================================= */
+.contact-details { text-align: center; padding: 40px 20px; background-color: #f8f6e9; }
+.info-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+.info-box {
+    background-color: transparent; padding: 30px; border-radius: 15px; border: 2px solid #75bdaa; min-width: 250px; transition: all 0.3s ease;
+}
+.info-box:hover { background-color: #fff; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(43, 122, 120, 0.2); }
+.info-box p { font-size: 16px; color: #333; margin: 5px 0; line-height: 1.5; }
+.icon { font-size: 30px; margin-bottom: 15px; display: block; }
+.email-link { color: #2b7a78; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+.email-link:hover { color: #75bdaa; text-decoration: underline; }
+#map { height: 380px; width: 60%; margin: 0 auto; border-radius: 12px; border: 3px solid #75bdaa; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.location-section { background-color: #f8f6e9; padding: 50px 0; text-align: center; }
+.location-img { margin-top: 30px; }
+.location-img img { width: 40%; border-radius: 12px; border: 2px solid #75bdaa; }
+
+/* =========================================
+   12. FOOTER (Centered Version)
+   ========================================= */
+.footer {
+    background-color: #1f5d4f; color: white; padding: 50px 20px; margin-top: 60px; text-align: center; border-top: 5px solid #75bdaa;
+}
+.footer-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+.footer-logo { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+.footer-logo img { width: 60px; height: 60px; border-radius: 50%; border: 3px solid #91d6c5; }
+.footer-logo span { font-family: 'Georgia', serif; font-size: 24px; font-weight: bold; color: #fff; letter-spacing: 1px; }
+.footer-tagline { font-size: 16px; color: #d6f3ea; font-style: italic; max-width: 500px; line-height: 1.5; }
+.footer-links { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+.footer-links a {
+    color: white; text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 1px;
+}
+.footer-links a:hover { color: #e85b42; }
+.footer-divider { width: 60px; height: 3px; background-color: #e85b42; border-radius: 2px; }
+.footer-social a { color: white; font-size: 24px; margin: 0 15px; transition: transform 0.3s; display: inline-block; }
+.footer-social a:hover { color: #e85b42; transform: scale(1.2); }
+.footer-contact-info { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 10px; }
+.footer-copyright { margin-top: 30px; font-size: 12px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; width: 100%; }
